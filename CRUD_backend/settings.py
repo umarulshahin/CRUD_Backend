@@ -204,6 +204,7 @@ CORS_ORIGIN_WHITELIST = [
 CORS_ALLOW_METHODS = [
     'GET',
     'POST',
+    'PATCH',
     # Add more allowed methods as needed
 ]
 

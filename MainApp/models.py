@@ -33,7 +33,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
     phone=models.CharField(max_length=15,blank=False)
-    profile =  models.ImageField(upload_to='img/profile',default='img/profile/Avatar-Profile.png',blank=True)
+    profile =  models.ImageField(upload_to='img/profile',blank=True)
 
     objects = CustomUserManager()
 
