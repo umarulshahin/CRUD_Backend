@@ -34,8 +34,8 @@ class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=CustomUser
-        fields=['username', 'email', 'phone', 'profile']
-        
+        fields=['username', 'email', 'phone', 'profile','id']
+        read_only_fields = ['id']
         
 
 class ImageUploadSerializer(serializers.Serializer):
@@ -50,5 +50,3 @@ class ImageUploadSerializer(serializers.Serializer):
             return user
         raise serializers.ValidationError("User not found")
               
-              
-          

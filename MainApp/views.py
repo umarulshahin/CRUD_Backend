@@ -6,6 +6,9 @@ from .serializer import RegisterSerializer,UserSerializer,ImageUploadSerializer
 from .models import *
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.views import APIView
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
 # Create your views here.
 
 
@@ -14,6 +17,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 def Dashboard(request):
     if request.method == 'GET':
         user = request.user
+        
         data=CustomUser.objects.filter(email=user)
         serializer=UserSerializer(data,many=True)
            
@@ -66,4 +70,22 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class MyTokenobtainedPairView(TokenObtainPairView):
     serializer_class=MyTokenObtainPairSerializer
     
- 
+class Update_User(APIView):
+    authentication_classes = [JWTAuthentication]
+    @permission_classes([IsAuthenticated])
+
+    def patch(self,request):
+        
+        id=request.data.get("id")
+        
+        obj=CustomUser.objects.filter(id=id).first()
+        if not obj:
+            return Response({"error": "User not found"})
+        
+        serializer=UserSerializer(obj,data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response({"error":serializer.errors})
+    
+    
