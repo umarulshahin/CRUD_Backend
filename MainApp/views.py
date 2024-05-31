@@ -35,7 +35,7 @@ def Sign_Up(request):
       
        if serializer.is_valid():
            serializer.save()
-           return Response({"Success":"User created"})  
+           return Response(serializer.data)  
        return Response({"error":serializer.errors})
     
 @api_view(["PATCH"])

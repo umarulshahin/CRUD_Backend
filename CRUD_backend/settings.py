@@ -207,6 +207,7 @@ CORS_ALLOW_METHODS = [
     'GET',
     'POST',
     'PATCH',
+    "DELETE",
     # Add more allowed methods as needed
 ]
 

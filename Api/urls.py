@@ -12,7 +12,8 @@ urlpatterns = [
     path('token/refresh/',TokenRefreshView.as_view(), name='token_refresh'),
     path('image_uploade/',Image_Upload,name="image_uploade"),
     path('updateUser/',Update_User.as_view(),name="updateUser"),
-    path('admin_dashboard/',Admin_Dashboard,name="admin_dashboard")
+    path('admin_dashboard/',Admin_Dashboard,name="admin_dashboard"),
+    path("userdelete/",UserDelete.as_view(),name="userdelete"),
     
 
 ]
