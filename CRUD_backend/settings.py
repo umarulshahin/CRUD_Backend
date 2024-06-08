@@ -199,6 +199,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media" 
 
 CORS_ALLOWED_ORIGIN_ALL = True
+
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:5173',
     # Add more origins if needed

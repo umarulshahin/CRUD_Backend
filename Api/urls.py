@@ -14,6 +14,5 @@ urlpatterns = [
     path('updateUser/',Update_User.as_view(),name="updateUser"),
     path('admin_dashboard/',Admin_Dashboard,name="admin_dashboard"),
     path("userdelete/",UserDelete.as_view(),name="userdelete"),
-    
 
 ]
