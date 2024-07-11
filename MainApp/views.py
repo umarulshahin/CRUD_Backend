@@ -57,6 +57,7 @@ def Image_Upload(request):
         return Response({"error": serializer.errors}, status=400)
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
@@ -70,6 +71,7 @@ class MyTokenobtainedPairView(TokenObtainPairView):
     serializer_class=MyTokenObtainPairSerializer
     
 class Update_User(APIView):
+    
     authentication_classes = [JWTAuthentication]
     @permission_classes([IsAuthenticated])
 
