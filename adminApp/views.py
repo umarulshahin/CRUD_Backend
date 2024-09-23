@@ -29,9 +29,8 @@ def Admin_Dashboard(request):
 
 
 class UserDelete(APIView):
-    authentication_classes = [JWTAuthentication]
-    @permission_classes([IsAuthenticated])
     
+    permission_classes = [IsAuthenticated]
     def delete(self, request):
         try:
             user_id = request.data.get("id")

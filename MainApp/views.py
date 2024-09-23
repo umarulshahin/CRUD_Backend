@@ -72,9 +72,7 @@ class MyTokenobtainedPairView(TokenObtainPairView):
     
 class Update_User(APIView):
     
-    authentication_classes = [JWTAuthentication]
-    @permission_classes([IsAuthenticated])
-
+    permission_classes([IsAuthenticated])
     def patch(self,request):
         
         id=request.data.get("id")
