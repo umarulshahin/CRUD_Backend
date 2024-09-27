@@ -31,7 +31,9 @@ def Sign_Up(request):
     
    if request.method == 'POST':
        nested_data = request.data.get('data', {})
-       serializer=RegisterSerializer(data=nested_data)  
+       data = request.data
+       print(data,'register data')
+       serializer=RegisterSerializer(data=data)  
       
        if serializer.is_valid():
            serializer.save()

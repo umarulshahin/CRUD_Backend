@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-s#u!=8ka0*d&36an2psn@bgr2154m3+#^+m@@oi5bizh&ugjv1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -99,11 +99,11 @@ WSGI_APPLICATION = 'CRUD_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'crud_react',
-        'USER':'postgres',
-        'PASSWORD':'901861',
-        'HOST':'localhost',
-        'PORT':'5432',
+        'NAME': os.environ.get('PG_DB', 'crud_react'),
+        'USER': os.environ.get('PG_USER', 'postgres'),
+        'PASSWORD': os.environ.get('PG_PASSWORD', '901861'),
+        'HOST': os.environ.get('PG_HOST', 'db'),
+        'PORT': os.environ.get('PG_PORT', '5432'),
     }
 }
 
