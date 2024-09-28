@@ -10,7 +10,7 @@ services:
       - PG_USER=postgres
       - PG_PASSWORD=901861
       - PG_DB=crud_react
-      - PG_HOST=db
+      - PG_HOST=localhost
       - PG_PORT=5432
     depends_on:
       - db
